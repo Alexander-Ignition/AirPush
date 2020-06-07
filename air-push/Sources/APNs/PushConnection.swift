@@ -1,7 +1,7 @@
 import Foundation
 
 /// APNs Connections.
-public enum PushConnection: String {
+public enum PushConnection: String, Codable {
     /// Development server.
     case development
 
@@ -22,20 +22,14 @@ extension PushConnection {
     }
 }
 
-// MARK: - Codable
+// MARK: - CustomStringConvertible
 
-extension PushConnection: Codable {
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        let string = try container.decode(String.self)
+extension PushConnection: CustomStringConvertible {
+    public var description: String { rawValue }
+}
 
-        switch string {
-        case "development":
-            self = .development
-        case "production":
-            self = .production
-        default:
-            self = .development
-        }
-    }
+// MARK: - CustomDebugStringConvertible
+
+extension PushConnection: CustomDebugStringConvertible {
+    public var debugDescription: String { "\(rawValue): \(host)" }
 }
