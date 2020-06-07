@@ -5,4 +5,4 @@
 Applications for APNs communication. 
 
 - **air-push** CLI application
-- **AirPush** mosOS application
+- **AirPush** masOS application
