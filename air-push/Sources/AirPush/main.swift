@@ -54,12 +54,14 @@ struct AirPush: ParsableCommand {
             deviceToken: deviceToken,
             body: body)
 
+        var outResult = PushResult.failure(.status(.zero, nil))
         let client = PushClient(operationQueue: .main) // callback in main queue
         client.send(push, certificate: certificate.credential) { result in
-            print(result)
+            outResult = result
             CFRunLoopStop(CFRunLoopGetCurrent()) // stop main loop
         }
         CFRunLoopRun() // run main loop
+        print(try outResult.get())
     }
 
 }

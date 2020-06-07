@@ -1,9 +1,14 @@
 import Foundation
 
-public typealias CompletionHandler = (Result<(Data, URLResponse?), Error>) -> Void
+/// Result of sending a push.
+public typealias PushResult = Result<PushStatus, PushError>
+public typealias PushResultHandler = (PushResult) -> Void
 
 public class PushClient {
+    /// Network session.
     public let session: URLSession
+
+    /// Network connections.
     private let connectionMap = ConnectionMap()
 
     public init(
@@ -24,7 +29,7 @@ public class PushClient {
     public func send(
         _ notification: PushNotification,
         certificate: URLCredential?,
-        completion: @escaping CompletionHandler
+        completion: @escaping PushResultHandler
     ) -> URLSessionTask {
 
         let task = session.dataTask(with: notification.request)
@@ -40,9 +45,9 @@ public class PushClient {
 final class TaskConnection {
     var data = Data()
     let certificate: URLCredential?
-    let completion: CompletionHandler
+    let completion: PushResultHandler
 
-    init(certificate: URLCredential?, completion: @escaping CompletionHandler) {
+    init(certificate: URLCredential?, completion: @escaping PushResultHandler) {
         self.certificate = certificate
         self.completion = completion
     }
@@ -63,44 +68,18 @@ extension ConnectionMap: URLSessionDataDelegate {
 
 // MARK: - URLSessionTaskDelegate
 
-struct ResponseError: Error, Codable {
-    let reason: String
-    let timestamp: Int?
-}
-
-struct PushStatus {
-    /// HTTP  status code.
-    let status: Int
-
-    /// Push notification id.
-    let id: String?
-}
-
-enum PushError: Error {
-    /// Respone with error.
-    case status(PushStatus, ResponseError)
-
-    /// Network error.
-    case network(URLError)
-
-    // Unknown error.
-    case unknown(Error)
-}
-
-typealias RushResult = Result<PushStatus, PushError>
-
 extension ConnectionMap: URLSessionTaskDelegate {
 
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         guard let connection = connections.removeValue(forKey: task.taskIdentifier) else {
             assertionFailure("Unknown task: \(task)"); return
         }
-        if let error = error {
-            connection.completion(.failure(error))
-        } else {
-            let value = (connection.data, task.response)
-            connection.completion(.success(value))
-        }
+        let result = PushStatus.parse(
+            data: connection.data,
+            response: task.response,
+            error: error)
+
+        connection.completion(result)
     }
 
     func urlSession(

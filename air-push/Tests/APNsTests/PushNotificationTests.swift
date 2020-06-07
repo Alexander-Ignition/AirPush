@@ -53,6 +53,8 @@ final class PushNotificationTests: XCTestCase {
         push.headers.authorization = "jwt"
         push.headers.id = id
         push.headers.expiration = timestamp
+        push.headers.priority = 10
+        push.headers.topic = "com.example.app"
         push.headers.collapseId = "group-10"
 
         // When
@@ -63,13 +65,14 @@ final class PushNotificationTests: XCTestCase {
         XCTAssertEqual(request.url?.scheme, "https")
         XCTAssertEqual(request.url?.host, "api.push.apple.com")
         XCTAssertEqual(request.url?.path, "/3/device/device-token-3")
-        XCTAssertEqual(request.allHTTPHeaderFields?.count, 6)
-        XCTAssertEqual(request.allHTTPHeaderFields, [:])
+        XCTAssertEqual(request.allHTTPHeaderFields?.count, 7)
         XCTAssertEqual(request.value(forHTTPHeaderField: "Content-Type"), "application/json")
-        XCTAssertEqual(request.value(forHTTPHeaderField: "authorization"), "jwt")
-        XCTAssertEqual(request.value(forHTTPHeaderField: "id"), id.uuidString)
-        XCTAssertEqual(request.value(forHTTPHeaderField: "expiration"), "\(timestamp)")
-        XCTAssertEqual(request.value(forHTTPHeaderField: "collapseId"), "group-10")
+        XCTAssertEqual(request.value(forHTTPHeaderField: "authorization"), "bearer jwt")
+        XCTAssertEqual(request.value(forHTTPHeaderField: "apns-id"), id.uuidString)
+        XCTAssertEqual(request.value(forHTTPHeaderField: "apns-priority"), "10")
+        XCTAssertEqual(request.value(forHTTPHeaderField: "apns-topic"), "com.example.app")
+        XCTAssertEqual(request.value(forHTTPHeaderField: "apns-expiration"), "\(timestamp)")
+        XCTAssertEqual(request.value(forHTTPHeaderField: "apns-collapse-id"), "group-10")
         XCTAssertEqual(request.httpBody, Data("push-3".utf8))
     }
 }

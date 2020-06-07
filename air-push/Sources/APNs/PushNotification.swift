@@ -60,31 +60,6 @@ public struct PushNotification {
         self.headers = headers
         self.body = body
     }
-
-    public var pushDescription: String {
-        var map = KeyMap<CodingKeys>()
-        map[.connection] = connection
-        map[.deviceToken] = deviceToken
-        map[.body] = body
-        return map.string
-    }
-}
-
-struct KeyMap<Key> where Key: RawRepresentable, Key.RawValue == String {
-    private var fields: [String] = []
-
-    var string: String { fields.joined(separator: "\n") }
-
-    subscript<T>(field: Key) -> T? {
-        get {
-            fatalError()
-        }
-        set {
-            if let value = newValue {
-                fields.append("\(field.rawValue): \(value)")
-            }
-        }
-    }
 }
 
 // MARK: - Codable
