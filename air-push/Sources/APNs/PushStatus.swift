@@ -2,9 +2,6 @@ import Foundation
 
 /// Status of sending push to APNs.
 public struct PushStatus {
-    /// Unexpected status.
-    public static let zero = PushStatus(status: 0, id: nil)
-    
     /// HTTP  status code.
     public let status: Int
 
@@ -46,7 +43,8 @@ extension PushStatus {
             let info = try? JSONDecoder().decode(PushError.UserInfo.self, from: data)
             return .failure(.status(status, info))
         case (_, .none):
-            return .failure(.status(.zero, nil))
+            let status = PushStatus(status: 0, id: nil)
+            return .failure(.status(status, nil))
         }
     }
 
