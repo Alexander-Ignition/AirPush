@@ -42,15 +42,16 @@ public enum Keychain {
     }
 }
 
+@inlinable
 func withPointer<T, U>(_ block: (inout T?) -> OSStatus) throws -> U {
     var value: T?
     let status = block(&value)
     guard status == errSecSuccess else {
-        throw KeychainError.status(status)
+        throw KeychainError(status: status)
     }
     guard let result = value as? U else {
         let message = "Unexpected result type: \(String(describing: value)) instead of \(U.self)"
-        throw KeychainError.message(message)
+        throw KeychainError(status: status, message: message)
     }
     return result
 }
