@@ -26,8 +26,8 @@ struct AirPush: ParsableCommand {
     @Option(default: .development, help: "Server connection (development|production)")
     var connection: PushConnection
 
-    @Option(default: nil, help: "JSON dictionary object for your notification’s payload.")
-    var body: String?
+    @Option(help: "JSON dictionary object for your notification’s payload.")
+    var body: String!
 
     @Option(default: "push.json", help: "The path to the file with JSON content.")
     var file: String
@@ -35,18 +35,17 @@ struct AirPush: ParsableCommand {
     @Flag(help: "Show more debugging information")
     var verbose: Bool
 
-    func run() throws {
+    mutating func run() throws {
         var logger = Logger(label: "com.air-push")
         logger.logLevel = verbose ? .debug : .info
 
         let certificate = try Keychain.macth(.contains(certificateName))
         logger.debug("Match certificate \"\(certificate.name)\"")
 
-        let body: String = try {
-            if let body = self.body { return body }
+        if body == nil {
             logger.debug("Read file at path: \(file)")
-            return try String(contentsOfFile: file)
-        }()
+            body = try String(contentsOfFile: file)
+        }
         logger.debug("Body size: \(body.utf8.count)")
 
         let push = PushNotification(
