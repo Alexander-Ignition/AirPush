@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0121A724249D33E800138001 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121A723249D33E800138001 /* MainWindowController.swift */; };
+		0156FD4E2498A18E003909E9 /* PushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0156FD4D2498A18E003909E9 /* PushViewModel.swift */; };
+		0156FD562498F941003909E9 /* Chain in Frameworks */ = {isa = PBXBuildFile; productRef = 0156FD552498F941003909E9 /* Chain */; };
+		016B434B249C9CEB0077D50D /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B434A249C9CEB0077D50D /* BoxView.swift */; };
 		01DFAB8A248CD21B003664BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DFAB89248CD21B003664BE /* AppDelegate.swift */; };
-		01DFAB8C248CD21B003664BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DFAB8B248CD21B003664BE /* ContentView.swift */; };
+		01DFAB8C248CD21B003664BE /* PushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DFAB8B248CD21B003664BE /* PushView.swift */; };
 		01DFAB8E248CD21B003664BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DFAB8D248CD21B003664BE /* Assets.xcassets */; };
 		01DFAB91248CD21B003664BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DFAB90248CD21B003664BE /* Preview Assets.xcassets */; };
 		01DFAB94248CD21B003664BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01DFAB92248CD21B003664BE /* Main.storyboard */; };
 		01DFABA0248CD21B003664BE /* AirPushMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DFAB9F248CD21B003664BE /* AirPushMacTests.swift */; };
 		01DFABAA248CD30A003664BE /* APNs in Frameworks */ = {isa = PBXBuildFile; productRef = 01DFABA9248CD30A003664BE /* APNs */; };
+		01E7CF2B249B91AD0068D1FD /* NSAlert+PushError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7CF2A249B91AD0068D1FD /* NSAlert+PushError.swift */; };
+		01E7CF2D249B95DD0068D1FD /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */; };
+		01E7CF2F249BBD080068D1FD /* PushConnectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7CF2E249BBD080068D1FD /* PushConnectionPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,9 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0121A723249D33E800138001 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		0156FD4D2498A18E003909E9 /* PushViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewModel.swift; sourceTree = "<group>"; };
+		016B434A249C9CEB0077D50D /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
 		01DFAB87248CD21B003664BE /* AirPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DFAB89248CD21B003664BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		01DFAB8B248CD21B003664BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		01DFAB8B248CD21B003664BE /* PushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushView.swift; sourceTree = "<group>"; };
 		01DFAB8D248CD21B003664BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01DFAB90248CD21B003664BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		01DFAB93248CD21B003664BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +48,9 @@
 		01DFAB9B248CD21B003664BE /* AirPushMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirPushMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DFAB9F248CD21B003664BE /* AirPushMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPushMacTests.swift; sourceTree = "<group>"; };
 		01DFABA1248CD21B003664BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01E7CF2A249B91AD0068D1FD /* NSAlert+PushError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAlert+PushError.swift"; sourceTree = "<group>"; };
+		01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
+		01E7CF2E249BBD080068D1FD /* PushConnectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushConnectionPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0156FD562498F941003909E9 /* Chain in Frameworks */,
 				01DFABAA248CD30A003664BE /* APNs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +73,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0121A71F249D336E00138001 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0121A723249D33E800138001 /* MainWindowController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0121A720249D338300138001 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0156FD512498B652003909E9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				01DFAB89248CD21B003664BE /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0156FD522498B658003909E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01DFAB8B248CD21B003664BE /* PushView.swift */,
+				01E7CF2A249B91AD0068D1FD /* NSAlert+PushError.swift */,
+				01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */,
+				01E7CF2E249BBD080068D1FD /* PushConnectionPicker.swift */,
+				016B434A249C9CEB0077D50D /* BoxView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0156FD542498B66C003909E9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0156FD4D2498A18E003909E9 /* PushViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0156FD572498FAB2003909E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				01DFAB95248CD21B003664BE /* Info.plist */,
+				01DFAB96248CD21B003664BE /* AirPushMac.entitlements */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0156FD582498FADC003909E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				01DFAB92248CD21B003664BE /* Main.storyboard */,
+				01DFAB8D248CD21B003664BE /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		01DFAB64248CD1CC003664BE = {
 			isa = PBXGroup;
 			children = (
@@ -81,12 +156,13 @@
 		01DFAB88248CD21B003664BE /* AirPushMac */ = {
 			isa = PBXGroup;
 			children = (
-				01DFAB89248CD21B003664BE /* AppDelegate.swift */,
-				01DFAB8B248CD21B003664BE /* ContentView.swift */,
-				01DFAB8D248CD21B003664BE /* Assets.xcassets */,
-				01DFAB92248CD21B003664BE /* Main.storyboard */,
-				01DFAB95248CD21B003664BE /* Info.plist */,
-				01DFAB96248CD21B003664BE /* AirPushMac.entitlements */,
+				0156FD512498B652003909E9 /* App */,
+				0156FD522498B658003909E9 /* Views */,
+				0156FD542498B66C003909E9 /* ViewModels */,
+				0121A71F249D336E00138001 /* Controllers */,
+				0121A720249D338300138001 /* Helpers */,
+				0156FD582498FADC003909E9 /* Resources */,
+				0156FD572498FAB2003909E9 /* Supporting Files */,
 				01DFAB8F248CD21B003664BE /* Preview Content */,
 			);
 			path = AirPushMac;
@@ -134,6 +210,7 @@
 			name = AirPushMac;
 			packageProductDependencies = (
 				01DFABA9248CD30A003664BE /* APNs */,
+				0156FD552498F941003909E9 /* Chain */,
 			);
 			productName = AirPushMac;
 			productReference = 01DFAB87248CD21B003664BE /* AirPush.app */;
@@ -220,8 +297,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01DFAB8C248CD21B003664BE /* ContentView.swift in Sources */,
+				016B434B249C9CEB0077D50D /* BoxView.swift in Sources */,
+				01DFAB8C248CD21B003664BE /* PushView.swift in Sources */,
+				01E7CF2F249BBD080068D1FD /* PushConnectionPicker.swift in Sources */,
+				0156FD4E2498A18E003909E9 /* PushViewModel.swift in Sources */,
 				01DFAB8A248CD21B003664BE /* AppDelegate.swift in Sources */,
+				01E7CF2B249B91AD0068D1FD /* NSAlert+PushError.swift in Sources */,
+				01E7CF2D249B95DD0068D1FD /* ProgressIndicator.swift in Sources */,
+				0121A724249D33E800138001 /* MainWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,14 +455,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = AirPushMac/AirPushMac.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "AirPushMac/Supporting Files/AirPushMac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AirPushMac/Preview Content\"";
 				DEVELOPMENT_TEAM = QM3357L793;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = AirPushMac/Info.plist;
+				INFOPLIST_FILE = "AirPushMac/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -395,14 +478,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = AirPushMac/AirPushMac.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "AirPushMac/Supporting Files/AirPushMac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AirPushMac/Preview Content\"";
 				DEVELOPMENT_TEAM = QM3357L793;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = AirPushMac/Info.plist;
+				INFOPLIST_FILE = "AirPushMac/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -491,6 +574,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0156FD552498F941003909E9 /* Chain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Chain;
+		};
 		01DFABA9248CD30A003664BE /* APNs */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = APNs;

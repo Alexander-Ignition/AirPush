@@ -17,7 +17,10 @@ extension PushError {
     }
 }
 
+// MARK: - CustomStringConvertible
+
 extension PushError: CustomStringConvertible {
+
     public var description: String {
         switch self {
         case .network(let error):

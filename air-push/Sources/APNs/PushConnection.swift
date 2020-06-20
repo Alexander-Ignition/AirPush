@@ -1,7 +1,7 @@
 import Foundation
 
 /// APNs Connections.
-public enum PushConnection: String, Codable {
+public enum PushConnection: String, Hashable, Codable, CaseIterable {
     /// Development server.
     case development
 

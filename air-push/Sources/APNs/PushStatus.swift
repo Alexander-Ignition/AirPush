@@ -23,6 +23,10 @@ extension PushStatus: Codable {
 // MARK: - Internal
 
 extension PushStatus {
+    public var localizedString: String {
+        HTTPURLResponse.localizedString(forStatusCode: status)
+    }
+
     init(response: HTTPURLResponse) {
         self.status = response.statusCode
         self.id = response.allHeaderFields[CodingKeys.id] as? String
