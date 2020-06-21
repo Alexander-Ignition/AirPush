@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0121A724249D33E800138001 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121A723249D33E800138001 /* MainWindowController.swift */; };
+		0133003C249E792700A79FF1 /* ChooseCertificatePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0133003B249E792700A79FF1 /* ChooseCertificatePanel.swift */; };
 		0156FD4E2498A18E003909E9 /* PushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0156FD4D2498A18E003909E9 /* PushViewModel.swift */; };
 		0156FD562498F941003909E9 /* Chain in Frameworks */ = {isa = PBXBuildFile; productRef = 0156FD552498F941003909E9 /* Chain */; };
 		016B434B249C9CEB0077D50D /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B434A249C9CEB0077D50D /* BoxView.swift */; };
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		0121A723249D33E800138001 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		01330037249E786000A79FF1 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		0133003B249E792700A79FF1 /* ChooseCertificatePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCertificatePanel.swift; sourceTree = "<group>"; };
 		0156FD4D2498A18E003909E9 /* PushViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewModel.swift; sourceTree = "<group>"; };
 		016B434A249C9CEB0077D50D /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
 		01DFAB87248CD21B003664BE /* AirPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +107,7 @@
 				01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */,
 				01E7CF2E249BBD080068D1FD /* PushConnectionPicker.swift */,
 				016B434A249C9CEB0077D50D /* BoxView.swift */,
+				0133003B249E792700A79FF1 /* ChooseCertificatePanel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +125,7 @@
 			children = (
 				01DFAB95248CD21B003664BE /* Info.plist */,
 				01DFAB96248CD21B003664BE /* AirPushMac.entitlements */,
+				01330037249E786000A79FF1 /* Bridging-Header.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 				TargetAttributes = {
 					01DFAB86248CD21B003664BE = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 					01DFAB9A248CD21B003664BE = {
 						CreatedOnToolsVersion = 11.5;
@@ -305,6 +311,7 @@
 				01E7CF2B249B91AD0068D1FD /* NSAlert+PushError.swift in Sources */,
 				01E7CF2D249B95DD0068D1FD /* ProgressIndicator.swift in Sources */,
 				0121A724249D33E800138001 /* MainWindowController.swift in Sources */,
+				0133003C249E792700A79FF1 /* ChooseCertificatePanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "AirPushMac/Supporting Files/AirPushMac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -470,6 +478,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-ignition.AirPushMac";
 				PRODUCT_NAME = AirPush;
+				SWIFT_OBJC_BRIDGING_HEADER = "AirPushMac/Supporting Files/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -478,6 +488,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "AirPushMac/Supporting Files/AirPushMac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -493,6 +504,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-ignition.AirPushMac";
 				PRODUCT_NAME = AirPush;
+				SWIFT_OBJC_BRIDGING_HEADER = "AirPushMac/Supporting Files/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

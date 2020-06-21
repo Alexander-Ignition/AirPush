@@ -28,17 +28,19 @@ public enum Keychain {
         let indentity: SecIdentity = try withPointer {
             SecItemCopyMatching(query as CFDictionary, &$0)
         }
-        let certificate: SecCertificate = try withPointer {
-            SecIdentityCopyCertificate(indentity, &$0)
-        }
-        let name: String = try withPointer {
-            SecCertificateCopyCommonName(certificate, &$0)
-        }
+        return try Certificate(identity: indentity)
+    }
 
-        return Certificate(
-            name: name,
-            identity: indentity,
-            certificate: certificate)
+    public static func identities() throws -> [SecIdentity] {
+        var query: [NSObject: Any] = [
+            kSecClass: kSecClassIdentity,
+            kSecMatchLimit: kSecMatchLimitAll,
+        ]
+        // valid on current date
+        query[kSecMatchValidOnDate] = kCFNull
+        return try withPointer {
+            SecItemCopyMatching(query as CFDictionary, &$0)
+        }
     }
 }
 

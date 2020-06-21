@@ -27,7 +27,7 @@ final class MainWindowController: NSWindowController {
         let minSize = window!.minSize
         let pushView = PushView(
             viewModel: viewModel,
-            certificates: { [weak self] in self?.certificates(nil) }
+            chooseCertificate: { [weak self] in self?.chooseCertificate(nil) }
         ).frame(minWidth: minSize.width, minHeight: minSize.height)
         contentViewController = NSHostingController(rootView: pushView)
 
@@ -59,8 +59,13 @@ final class MainWindowController: NSWindowController {
         viewModel.push.connection = connection
     }
 
-    @IBAction func certificates(_ sender: Any?) {
-        //
+    @IBAction func chooseCertificate(_ sender: Any?) {
+        guard let window = self.window else { return }
+
+        let panel = ChooseCertificatePanel()
+        panel.beginSheetModal(for: window) { [weak self] certificate in
+            self?.viewModel.certificate = certificate
+        }
     }
 
     // MARK: - Private

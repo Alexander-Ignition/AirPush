@@ -12,7 +12,7 @@ import SwiftUI
 struct PushView: View {
     @ObservedObject var viewModel: PushViewModel
 
-    let certificates: () -> Void
+    let chooseCertificate: () -> Void
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,7 +24,7 @@ struct PushView: View {
             }
             PushConnectionPicker(selection: $viewModel.push.connection)
             HStack {
-                Button("Certificate:", action: certificates)
+                Button("Certificate:", action: chooseCertificate)
                 Text(viewModel.certificate?.name ?? "none")
             }
             HStack {
@@ -47,6 +47,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         PushView(
             viewModel: PushViewModel(),
-            certificates: { print("certs") })
+            chooseCertificate: { print("certs") })
     }
 }

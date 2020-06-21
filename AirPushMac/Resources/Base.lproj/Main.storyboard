@@ -346,8 +346,11 @@
                                                 <action selector="send:" target="Ady-hI-5gd" id="rSR-tf-CQC"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Item 2" id="Tey-CZ-MqE">
+                                        <menuItem title="Choose Certificate" id="Tey-CZ-MqE">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="chooseCertificate:" target="Ady-hI-5gd" id="rFJ-WQ-Gau"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="Item 3" id="Rnf-3b-Vc4">
                                             <modifierMask key="keyEquivalentModifierMask"/>
