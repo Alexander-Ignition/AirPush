@@ -19,9 +19,11 @@ final class PushViewModel: ObservableObject {
 
     @Published var result: PushResult?
     @Published var isLoading: Bool = false
-    @Published var certificate: Certificate?
+    @Published var certificate: Certificate? {
+        didSet { undo(\.certificate, oldValue) }
+    }
     @Published var push = PushNotification(deviceToken: "", body: "") {
-        didSet { registerUndo { $0.push = oldValue } }
+        didSet { undo(\.push, oldValue) }
     }
 
     // MARK: - Actions
@@ -36,8 +38,8 @@ final class PushViewModel: ObservableObject {
 
     // MARK: - Private
 
-    private func registerUndo(handler: @escaping (PushViewModel) -> Void) {
-        undoManager.registerUndo(withTarget: self, handler: handler)
+    private func undo<T>(_ keyPath: ReferenceWritableKeyPath<PushViewModel, T>, _ oldValue: T) {
+        undoManager.registerUndo(withTarget: self, handler: { $0[keyPath: keyPath] = oldValue })
     }
 }
 
