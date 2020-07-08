@@ -22,7 +22,6 @@ struct PushView: View {
                     "The hexadecimal bytes of the device token for the target device",
                     text: $viewModel.push.deviceToken)
             }
-            PushConnectionPicker(selection: $viewModel.push.connection)
             HStack {
                 Button("Certificate:", action: chooseCertificate)
                 Text(viewModel.certificate?.name ?? "none")
@@ -32,7 +31,7 @@ struct PushView: View {
                 Button("Send", action: send)
                     .disabled(viewModel.isLoading)
             }
-            Spacer()
+            TextView(text: $viewModel.push.body)
         }
         .padding()
     }
