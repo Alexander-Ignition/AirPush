@@ -11,7 +11,6 @@
 		0133003C249E792700A79FF1 /* ChooseCertificatePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0133003B249E792700A79FF1 /* ChooseCertificatePanel.swift */; };
 		0156FD4E2498A18E003909E9 /* PushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0156FD4D2498A18E003909E9 /* PushViewModel.swift */; };
 		0156FD562498F941003909E9 /* Chain in Frameworks */ = {isa = PBXBuildFile; productRef = 0156FD552498F941003909E9 /* Chain */; };
-		016B434B249C9CEB0077D50D /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B434A249C9CEB0077D50D /* BoxView.swift */; };
 		01C356B124B5C062007A42F2 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C356B024B5C062007A42F2 /* TextView.swift */; };
 		01DFAB8A248CD21B003664BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DFAB89248CD21B003664BE /* AppDelegate.swift */; };
 		01DFAB8C248CD21B003664BE /* PushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DFAB8B248CD21B003664BE /* PushView.swift */; };
@@ -22,7 +21,6 @@
 		01DFABAA248CD30A003664BE /* APNs in Frameworks */ = {isa = PBXBuildFile; productRef = 01DFABA9248CD30A003664BE /* APNs */; };
 		01E7CF2B249B91AD0068D1FD /* NSAlert+PushError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7CF2A249B91AD0068D1FD /* NSAlert+PushError.swift */; };
 		01E7CF2D249B95DD0068D1FD /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */; };
-		01E7CF2F249BBD080068D1FD /* PushConnectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7CF2E249BBD080068D1FD /* PushConnectionPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +38,6 @@
 		01330037249E786000A79FF1 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		0133003B249E792700A79FF1 /* ChooseCertificatePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCertificatePanel.swift; sourceTree = "<group>"; };
 		0156FD4D2498A18E003909E9 /* PushViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewModel.swift; sourceTree = "<group>"; };
-		016B434A249C9CEB0077D50D /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
 		01C356B024B5C062007A42F2 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		01DFAB87248CD21B003664BE /* AirPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DFAB89248CD21B003664BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +52,6 @@
 		01DFABA1248CD21B003664BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01E7CF2A249B91AD0068D1FD /* NSAlert+PushError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAlert+PushError.swift"; sourceTree = "<group>"; };
 		01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
-		01E7CF2E249BBD080068D1FD /* PushConnectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushConnectionPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +103,6 @@
 				01DFAB8B248CD21B003664BE /* PushView.swift */,
 				01E7CF2A249B91AD0068D1FD /* NSAlert+PushError.swift */,
 				01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */,
-				01E7CF2E249BBD080068D1FD /* PushConnectionPicker.swift */,
-				016B434A249C9CEB0077D50D /* BoxView.swift */,
 				0133003B249E792700A79FF1 /* ChooseCertificatePanel.swift */,
 				01C356B024B5C062007A42F2 /* TextView.swift */,
 			);
@@ -306,9 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				016B434B249C9CEB0077D50D /* BoxView.swift in Sources */,
 				01DFAB8C248CD21B003664BE /* PushView.swift in Sources */,
-				01E7CF2F249BBD080068D1FD /* PushConnectionPicker.swift in Sources */,
 				0156FD4E2498A18E003909E9 /* PushViewModel.swift in Sources */,
 				01DFAB8A248CD21B003664BE /* AppDelegate.swift in Sources */,
 				01E7CF2B249B91AD0068D1FD /* NSAlert+PushError.swift in Sources */,
