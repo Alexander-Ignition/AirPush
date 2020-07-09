@@ -10,6 +10,26 @@ import APNs
 import Chain
 import Foundation
 
+struct Payload: RawRepresentable  {
+    let rawValue: String
+}
+
+extension Payload {
+    static let preview = Payload(rawValue: """
+    {
+       "aps" : {
+          "alert" : {
+             "title" : "Game Request",
+             "subtitle" : "Five Card Draw",
+             "body" : "Bob wants to play poker",
+          },
+          "category" : "GAME_INVITATION"
+       },
+       "gameID" : "12345678"
+    }
+    """)
+}
+
 final class PushViewModel: ObservableObject {
 
     let undoManager = UndoManager()
@@ -22,7 +42,7 @@ final class PushViewModel: ObservableObject {
     @Published var certificate: Certificate? {
         didSet { undo(\.certificate, oldValue) }
     }
-    @Published var push = PushNotification(deviceToken: "", body: "") {
+    @Published var push = PushNotification(deviceToken: "", body: Payload.preview.rawValue) {
         didSet { undo(\.push, oldValue) }
     }
 
