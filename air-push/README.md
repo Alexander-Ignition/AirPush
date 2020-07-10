@@ -22,8 +22,7 @@ $ make install
 
 ## Usage
 
-```bash
-$ air-push --help
+```
 OVERVIEW: A utility for send push notification
 
 USAGE: air-push --device-token <device-token> --certificate-name <certificate-name> [--connection <connection>] [--body <body>] [--file <file>] [--verbose]
