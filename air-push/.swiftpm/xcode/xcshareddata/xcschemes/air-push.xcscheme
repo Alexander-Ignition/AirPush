@@ -63,11 +63,11 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "--device-token 1"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--certificate-name x"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
    </LaunchAction>
