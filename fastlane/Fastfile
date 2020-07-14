@@ -1,15 +1,26 @@
+AIR_PUSH_VERSION_PATH = '../air-push/Sources/AirPush/main.swift'
+
 default_platform(:mac)
 
 platform :mac do
   lane :versions do
     puts "AirPush Mac: #{get_version_number} (#{get_build_number})"
-    file = File.read('../air-push/Sources/AirPush/main.swift')
-    version = file.match(/version: "(.+)"/)[1]
-    puts "AirPush CLI: #{version}"
+    puts "AirPush CLI: #{get_air_push_version}"
   end
 
   lane :release do
     build_number = increment_build_number
     version_number = increment_version_number(bump_type: "patch")
+    set_air_push_version(version_number)
   end
+end
+
+def get_air_push_version
+  File.read(AIR_PUSH_VERSION_PATH).match(/version: "(.+)"/)[1]
+end
+
+def set_air_push_version(version)
+  text = File.read(AIR_PUSH_VERSION_PATH)
+  text = text.gsub!(/version: "(.+)"/, "version: \"#{version}\"")
+  File.write(AIR_PUSH_VERSION_PATH, text)
 end
