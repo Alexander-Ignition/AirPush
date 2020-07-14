@@ -2,10 +2,10 @@ default_platform(:mac)
 
 platform :mac do
   lane :versions do
+    puts "AirPush Mac: #{get_version_number} (#{get_build_number})"
     file = File.read('../air-push/Sources/AirPush/main.swift')
     version = file.match(/version: "(.+)"/)[1]
     puts "AirPush CLI: #{version}"
-    puts "AirPush Mac:  #{get_version_number} (#{get_build_number})"
   end
 
   lane :release do

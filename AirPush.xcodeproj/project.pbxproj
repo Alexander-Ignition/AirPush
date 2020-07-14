@@ -478,7 +478,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-ignition.AirPush-mac";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-ignition.AirPushMac";
 				PRODUCT_NAME = AirPush;
 				SWIFT_OBJC_BRIDGING_HEADER = "AirPushMac/Supporting Files/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -504,7 +504,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-ignition.AirPush-mac";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-ignition.AirPushMac";
 				PRODUCT_NAME = AirPush;
 				SWIFT_OBJC_BRIDGING_HEADER = "AirPushMac/Supporting Files/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

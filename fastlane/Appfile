@@ -1,0 +1,5 @@
+app_identifier("com.alex-ignition.AirPushMac")
+apple_id ENV["APPLE_ID"]
+
+team_id("QM3357L793")
+itc_team_id ENV["ITC_TEAM_ID"]
