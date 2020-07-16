@@ -1,5 +1,5 @@
 //
-//  TextView.swift
+//  JsonEditor.swift
 //  AirPushMac
 //
 //  Created by Alexander Ignatev on 08.07.2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct TextView: NSViewRepresentable {
+struct JsonEditor: NSViewRepresentable {
     @Binding var text: String
 
     func makeNSView(context: Context) -> NSScrollView {
@@ -26,7 +26,7 @@ struct TextView: NSViewRepresentable {
             ofSize: NSFont.systemFontSize,
             weight: .regular
         )
-        let textStorage = HighlightedTextStorage()
+        let textStorage = JsonTextStorage()
         textStorage.addLayoutManager(textView.layoutManager!)
         let scrollView = NSScrollView()
         scrollView.documentView = textView
@@ -47,37 +47,37 @@ struct TextView: NSViewRepresentable {
     }
 
     final class Coordinator: NSObject, NSTextViewDelegate {
-        let parent: TextView
+        let editor: JsonEditor
 
-        init(_ parent: TextView) {
-            self.parent = parent
+        init(_ parent: JsonEditor) {
+            self.editor = parent
         }
 
         func textDidChange(_ notification: Notification) {
             guard let textView = notification.object as? NSTextView else { return }
-            parent.text = textView.string
+            editor.text = textView.string
         }
     }
 }
 
 // MARK: - Preview
 
-struct TextView_Previews: PreviewProvider {
+struct JsonEditor_Previews: PreviewProvider {
     private static let text = Binding.constant(Payload.preview.rawValue)
 
     static var previews: some View {
         Group {
-            TextView(text: text).colorScheme(.light)
-            TextView(text: text).colorScheme(.dark)
+            JsonEditor(text: text).colorScheme(.light)
+            JsonEditor(text: text).colorScheme(.dark)
         }
         .frame(width: 400, height: 200)
         .padding()
     }
 }
 
-// MARK: - Highlight
+// MARK: - TextStorage
 
-final class HighlightedTextStorage: NSTextStorage {
+final class JsonTextStorage: NSTextStorage {
     private let text = NSMutableAttributedString()
     private let regex = try! NSRegularExpression(pattern: #""(?:[^"\\]|\\.)*""#)
 

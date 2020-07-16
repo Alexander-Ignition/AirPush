@@ -31,7 +31,7 @@ struct PushView: View {
                 Button("Send", action: send)
                     .disabled(viewModel.isLoading)
             }
-            TextView(text: $viewModel.push.body)
+            JsonEditor(text: $viewModel.push.body)
         }
         .padding()
     }
