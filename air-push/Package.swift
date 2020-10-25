@@ -5,10 +5,14 @@ import PackageDescription
 
 let package = Package(
     name: "air-push",
+    platforms: [
+        .macOS(.v10_14)
+    ],
     products: [
         .executable(name: "air-push", targets: ["AirPush"]),
         .library(name: "APNs", targets: ["APNs"]),
         .library(name: "Chain", targets: ["Chain"]),
+        .library(name: "JWT", targets: ["JWT"]),
     ],
     dependencies: [
         .package(
@@ -19,6 +23,11 @@ let package = Package(
             url: "https://github.com/apple/swift-log.git",
             from: "1.0.0"
         ),
+        .package(
+            name: "CryptorECC",
+            url: "https://github.com/Kitura/BlueECC.git",
+            .upToNextMinor(from: "1.2.4")
+        )
     ],
     targets: [
         // CLI app
@@ -27,6 +36,7 @@ let package = Package(
             .product(name: "Logging", package: "swift-log"),
             .target(name: "APNs"),
             .target(name: "Chain"),
+            .target(name: "JWT"),
         ]),
 
         // Apple Push Notification service
@@ -35,5 +45,9 @@ let package = Package(
 
         // Keychain access
         .target(name: "Chain"),
+        
+        // JSON Web Tokens
+        .target(name: "JWT", dependencies: ["CryptorECC"]),
+        .testTarget(name: "JWTTests", dependencies: ["JWT"]),
     ]
 )

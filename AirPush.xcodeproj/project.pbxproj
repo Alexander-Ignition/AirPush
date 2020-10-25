@@ -21,6 +21,7 @@
 		01DFABAA248CD30A003664BE /* APNs in Frameworks */ = {isa = PBXBuildFile; productRef = 01DFABA9248CD30A003664BE /* APNs */; };
 		01E7CF2B249B91AD0068D1FD /* NSAlert+PushError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7CF2A249B91AD0068D1FD /* NSAlert+PushError.swift */; };
 		01E7CF2D249B95DD0068D1FD /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */; };
+		027BB0A22545A97E001E9320 /* JWT in Frameworks */ = {isa = PBXBuildFile; productRef = 027BB0A12545A97E001E9320 /* JWT */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				027BB0A22545A97E001E9320 /* JWT in Frameworks */,
 				0156FD562498F941003909E9 /* Chain in Frameworks */,
 				01DFABAA248CD30A003664BE /* APNs in Frameworks */,
 			);
@@ -213,6 +215,7 @@
 			packageProductDependencies = (
 				01DFABA9248CD30A003664BE /* APNs */,
 				0156FD552498F941003909E9 /* Chain */,
+				027BB0A12545A97E001E9320 /* JWT */,
 			);
 			productName = AirPushMac;
 			productReference = 01DFAB87248CD21B003664BE /* AirPush.app */;
@@ -467,7 +470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AirPushMac/Preview Content\"";
-				DEVELOPMENT_TEAM = QM3357L793;
+				DEVELOPMENT_TEAM = LLB977TXWN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "AirPushMac/Supporting Files/Info.plist";
@@ -477,7 +480,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-ignition.AirPushMac";
+				PRODUCT_BUNDLE_IDENTIFIER = com.glezman.AirPushMac;
 				PRODUCT_NAME = AirPush;
 				SWIFT_OBJC_BRIDGING_HEADER = "AirPushMac/Supporting Files/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -494,7 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AirPushMac/Preview Content\"";
-				DEVELOPMENT_TEAM = QM3357L793;
+				DEVELOPMENT_TEAM = LLB977TXWN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "AirPushMac/Supporting Files/Info.plist";
@@ -504,7 +507,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-ignition.AirPushMac";
+				PRODUCT_BUNDLE_IDENTIFIER = com.glezman.AirPushMac;
 				PRODUCT_NAME = AirPush;
 				SWIFT_OBJC_BRIDGING_HEADER = "AirPushMac/Supporting Files/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -595,6 +598,10 @@
 		01DFABA9248CD30A003664BE /* APNs */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = APNs;
+		};
+		027BB0A12545A97E001E9320 /* JWT */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JWT;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
