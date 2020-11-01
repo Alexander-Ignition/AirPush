@@ -30,14 +30,20 @@ extension Payload {
     """)
 }
 
+enum AuthenticationMethod: Int {
+    case certificate = 0
+    case jwt = 1
+}
+
 final class PushViewModel: ObservableObject {
 
+    private var jwtStorage: JWTStorage
     let undoManager = UndoManager()
     let client = PushClient(
         configuration: .ephemeral,
         operationQueue: .main)
 
-    @Published var result: PushResult?
+    @Published var result: Result<PushStatus, Error>?
     @Published var isLoading: Bool = false
     @Published var certificate: Certificate? {
         didSet { undo(\.certificate, oldValue) }
@@ -45,14 +51,30 @@ final class PushViewModel: ObservableObject {
     @Published var push = PushNotification(deviceToken: "", body: Payload.preview.rawValue) {
         didSet { undo(\.push, oldValue) }
     }
-
+    @Published var authenticationMethod: AuthenticationMethod = .certificate
+    
+    
+    init(jwtStorage: JWTStorage) {
+        self.jwtStorage = jwtStorage
+    }
+    
     // MARK: - Actions
 
     func send() {
+        if authenticationMethod == .jwt {
+            do {
+                push.headers.authorization = try jwtStorage.getJWT()
+            } catch {
+                result = .failure(error)
+                return
+            }
+        } else {
+            push.headers.authorization = nil
+        }
         isLoading = true
         client.send(push, certificate: nil) { [weak self] result in
             self?.isLoading = false
-            self?.result = result
+            self?.result = result.mapError { $0 }
         }
     }
 

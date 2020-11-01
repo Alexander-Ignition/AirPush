@@ -16,8 +16,10 @@ final class MainWindowController: NSWindowController {
     @IBOutlet private var sendButton: NSButton!
     @IBOutlet private var connectionButton: NSPopUpButton!
 
-    private lazy var viewModel = PushViewModel()
+    private lazy var jwtStorage = JWTStorage()
+    private lazy var viewModel = PushViewModel(jwtStorage: jwtStorage)
     private var subscriptions = Set<AnyCancellable>()
+    private var chooseKeyFilePanel: ChooseKeyFilePanel?
 
     // MARK: - NSWindowController
 
@@ -27,7 +29,9 @@ final class MainWindowController: NSWindowController {
         let minSize = window!.minSize
         let pushView = PushView(
             viewModel: viewModel,
-            chooseCertificate: { [weak self] in self?.chooseCertificate(nil) }
+            jwtStorage: jwtStorage,
+            chooseCertificate: { [weak self] in self?.chooseCertificate(nil) },
+            chooseKeyFile: { [weak self] in self?.chooseKeyFile(nil) }
         ).frame(minWidth: minSize.width, minHeight: minSize.height)
         contentViewController = NSHostingController(rootView: pushView)
 
@@ -67,10 +71,19 @@ final class MainWindowController: NSWindowController {
             self?.viewModel.certificate = certificate
         }
     }
+    
+    func chooseKeyFile(_ sender: Any?) {
+        guard let window = self.window else { return }
+        chooseKeyFilePanel = ChooseKeyFilePanel()
+        chooseKeyFilePanel?.beginSheetModal(for: window) { [weak self] file in
+            self?.jwtStorage.keyFile = file
+            self?.chooseKeyFilePanel = nil
+        }
+    }
 
     // MARK: - Private
 
-    private func showResult(_ result: PushResult) {
+    private func showResult(_ result: Result<PushStatus, Error>) {
         print(result)
         guard let window = self.window else { return }
 

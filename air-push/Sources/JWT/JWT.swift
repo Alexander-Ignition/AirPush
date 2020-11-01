@@ -22,10 +22,11 @@ public struct JWTPayload: Encodable {
 
 public struct JWT {
     
-    private let header: JWTHeader
-    private var payload: JWTPayload
+    public let header: JWTHeader
+    public var payload: JWTPayload
+    public let key: String
+    
     private let encoder = JSONEncoder()
-    private let key: String
     
     /// Initalize a JWT struct for authorization APNs requests
     ///

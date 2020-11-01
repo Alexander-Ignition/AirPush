@@ -22,6 +22,10 @@
 		01E7CF2B249B91AD0068D1FD /* NSAlert+PushError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7CF2A249B91AD0068D1FD /* NSAlert+PushError.swift */; };
 		01E7CF2D249B95DD0068D1FD /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */; };
 		027BB0A22545A97E001E9320 /* JWT in Frameworks */ = {isa = PBXBuildFile; productRef = 027BB0A12545A97E001E9320 /* JWT */; };
+		027BB0AA2545C121001E9320 /* CertificateSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BB0A92545C121001E9320 /* CertificateSelectionView.swift */; };
+		027BB0AE2545C143001E9320 /* KeySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027BB0AD2545C143001E9320 /* KeySelectionView.swift */; };
+		02FCD61F254F0E310023A684 /* ChooseKeyFilePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FCD61E254F0E310023A684 /* ChooseKeyFilePanel.swift */; };
+		02FCD623254F32270023A684 /* JWTStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FCD622254F32270023A684 /* JWTStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		01DFABA1248CD21B003664BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01E7CF2A249B91AD0068D1FD /* NSAlert+PushError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAlert+PushError.swift"; sourceTree = "<group>"; };
 		01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
+		027BB0A92545C121001E9320 /* CertificateSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateSelectionView.swift; sourceTree = "<group>"; };
+		027BB0AD2545C143001E9320 /* KeySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySelectionView.swift; sourceTree = "<group>"; };
+		02FCD61E254F0E310023A684 /* ChooseKeyFilePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseKeyFilePanel.swift; sourceTree = "<group>"; };
+		02FCD622254F32270023A684 /* JWTStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,13 +92,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		0121A720249D338300138001 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		0156FD512498B652003909E9 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,9 +104,12 @@
 			isa = PBXGroup;
 			children = (
 				01DFAB8B248CD21B003664BE /* PushView.swift */,
+				027BB0A92545C121001E9320 /* CertificateSelectionView.swift */,
+				027BB0AD2545C143001E9320 /* KeySelectionView.swift */,
 				01E7CF2A249B91AD0068D1FD /* NSAlert+PushError.swift */,
 				01E7CF2C249B95DD0068D1FD /* ProgressIndicator.swift */,
 				0133003B249E792700A79FF1 /* ChooseCertificatePanel.swift */,
+				02FCD61E254F0E310023A684 /* ChooseKeyFilePanel.swift */,
 				01C356B024B5C062007A42F2 /* JsonEditor.swift */,
 			);
 			path = Views;
@@ -115,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				0156FD4D2498A18E003909E9 /* PushViewModel.swift */,
+				02FCD622254F32270023A684 /* JWTStorage.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -164,7 +169,6 @@
 				0156FD522498B658003909E9 /* Views */,
 				0156FD542498B66C003909E9 /* ViewModels */,
 				0121A71F249D336E00138001 /* Controllers */,
-				0121A720249D338300138001 /* Helpers */,
 				0156FD582498FADC003909E9 /* Resources */,
 				0156FD572498FAB2003909E9 /* Supporting Files */,
 				01DFAB8F248CD21B003664BE /* Preview Content */,
@@ -303,14 +307,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				027BB0AA2545C121001E9320 /* CertificateSelectionView.swift in Sources */,
 				01DFAB8C248CD21B003664BE /* PushView.swift in Sources */,
 				0156FD4E2498A18E003909E9 /* PushViewModel.swift in Sources */,
 				01DFAB8A248CD21B003664BE /* AppDelegate.swift in Sources */,
 				01E7CF2B249B91AD0068D1FD /* NSAlert+PushError.swift in Sources */,
+				02FCD623254F32270023A684 /* JWTStorage.swift in Sources */,
 				01E7CF2D249B95DD0068D1FD /* ProgressIndicator.swift in Sources */,
 				0121A724249D33E800138001 /* MainWindowController.swift in Sources */,
 				0133003C249E792700A79FF1 /* ChooseCertificatePanel.swift in Sources */,
+				02FCD61F254F0E310023A684 /* ChooseKeyFilePanel.swift in Sources */,
 				01C356B124B5C062007A42F2 /* JsonEditor.swift in Sources */,
+				027BB0AE2545C143001E9320 /* KeySelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
