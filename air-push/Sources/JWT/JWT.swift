@@ -1,5 +1,5 @@
 import Foundation
-import CryptorECC
+import CryptoKit
 
 public struct JWTHeader: Encodable {
     public let alg = "ES256"
@@ -54,10 +54,10 @@ public struct JWT {
         let payloadPart = (try encoder.encode(payload)).base64URLEncodedString()
         let body = "\(headerPart).\(payloadPart)"
         
-        let privKey = try ECPrivateKey(key: key)
-        let signature = try body.sign(with: privKey).asn1
+        let privKey = try P256.Signing.PrivateKey(pemRepresentation: key)
+        let signature = try privKey.signature(for: body.data(using: .utf8)!)
         
-        return "\(body).\(signature.base64URLEncodedString())"
+        return "\(body).\(signature.rawRepresentation.base64URLEncodedString())"
     }
     
     /// Verify JWT signature
@@ -68,15 +68,15 @@ public struct JWT {
     /// - Returns: A boolean value indicating whether the token contains a valid signature or not
     static func verify(jwt: String, publicKey: String) throws -> Bool {
         let parts = jwt.split(separator: ".")
-        let pubKey = try ECPublicKey(key: publicKey)
+        let pubKey = try P256.Signing.PublicKey(pemRepresentation: publicKey)
         let body = "\(parts[0]).\(parts[1])"
         
         guard let signature = Data.decodeBase64url(String(parts[2])) else {
             return false
         }
-        let ecSignature = try ECSignature(asn1: signature)
+        let ecSignature = try P256.Signing.ECDSASignature(rawRepresentation: signature)
         
-        return ecSignature.verify(plaintext: body, using: pubKey)
+        return pubKey.isValidSignature(ecSignature, for: body.data(using: .utf8)!)
     }
 }
 

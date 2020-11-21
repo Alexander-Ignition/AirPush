@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "air-push",
     platforms: [
-        .macOS(.v10_14)
+        .macOS(.v11)
     ],
     products: [
         .executable(name: "air-push", targets: ["AirPush"]),
@@ -23,11 +23,6 @@ let package = Package(
             url: "https://github.com/apple/swift-log.git",
             from: "1.0.0"
         ),
-        .package(
-            name: "CryptorECC",
-            url: "https://github.com/Kitura/BlueECC.git",
-            .upToNextMinor(from: "1.2.4")
-        )
     ],
     targets: [
         // CLI app
@@ -47,7 +42,7 @@ let package = Package(
         .target(name: "Chain"),
         
         // JSON Web Tokens
-        .target(name: "JWT", dependencies: ["CryptorECC"]),
+        .target(name: "JWT", dependencies: []),
         .testTarget(name: "JWTTests", dependencies: ["JWT"]),
     ]
 )
