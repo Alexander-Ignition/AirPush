@@ -1,14 +1,18 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "air-push",
+    platforms: [
+        .macOS(.v11)
+    ],
     products: [
         .executable(name: "air-push", targets: ["AirPush"]),
         .library(name: "APNs", targets: ["APNs"]),
         .library(name: "Chain", targets: ["Chain"]),
+        .library(name: "JWT", targets: ["JWT"]),
     ],
     dependencies: [
         .package(
@@ -27,6 +31,7 @@ let package = Package(
             .product(name: "Logging", package: "swift-log"),
             .target(name: "APNs"),
             .target(name: "Chain"),
+            .target(name: "JWT"),
         ]),
 
         // Apple Push Notification service
@@ -35,5 +40,9 @@ let package = Package(
 
         // Keychain access
         .target(name: "Chain"),
+        
+        // JSON Web Tokens
+        .target(name: "JWT", dependencies: []),
+        .testTarget(name: "JWTTests", dependencies: ["JWT"]),
     ]
 )

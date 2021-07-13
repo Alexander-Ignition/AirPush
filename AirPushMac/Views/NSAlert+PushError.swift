@@ -11,15 +11,15 @@ import Cocoa
 
 extension NSAlert {
 
-    convenience init(pushError: PushError) {
+    convenience init(pushError: Error) {
         switch pushError {
-        case .network(let error):
-            self.init(error: error)
-        case .status(let status, let userInfo):
+        case PushError.status(let status, let userInfo):
             self.init(error: pushError)
             self.messageText = "\(status.status): \(status.localizedString)"
             self.informativeText = userInfo?.reason ?? ""
             self.showsHelp = true
+        default:
+            self.init(error: pushError)
         }
     }
 }

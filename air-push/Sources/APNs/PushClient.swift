@@ -91,8 +91,9 @@ extension ConnectionMap: URLSessionTaskDelegate {
         guard let connection = connections[task.taskIdentifier] else {
             assertionFailure("Unknown task: \(task)"); return
         }
-        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodClientCertificate {
-            completionHandler(.useCredential, connection.certificate)
+        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodClientCertificate,
+           let certificate = connection.certificate {
+            completionHandler(.useCredential, certificate)
         } else {
             completionHandler(.performDefaultHandling, nil)
         }
